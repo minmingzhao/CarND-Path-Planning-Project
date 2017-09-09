@@ -349,12 +349,12 @@ int main() {
             {
               ref_vel += .224;
             }
-            // cout<<"too_close = " << too_close
-            // <<". prep_left_lane_change = "<<prep_left_lane_change
-            // <<". left_lane_change = "<<left_lane_change
-            // <<". prep_right_lane_change = "<<prep_right_lane_change
-            // <<". right_lane_change = "<<right_lane_change
-            // <<endl;
+            cout<<"too_close = " << too_close
+            <<". prep_left_lane_change = "<<prep_left_lane_change
+            <<". left_lane_change = "<<left_lane_change
+            <<". prep_right_lane_change = "<<prep_right_lane_change
+            <<". right_lane_change = "<<right_lane_change
+            <<endl;
 
 
 
