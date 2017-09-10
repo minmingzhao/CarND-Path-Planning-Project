@@ -17,11 +17,11 @@ cost = cost_lane + cost_speed + cost_collision + cost_buffer
 * all the cost function pieces will go through normalization function to be unitless. 
 4. Cost function makes decision whether if the ego vehicle should keep in lane, slow down vehicle, change to left lane or change to right lane. 
 
+Sample output working window
+[overall.png]:./imgs/overall.png
+![alt text][overall.png]
 
-
-
-
-#### The map of the highway is in data/highway_map.txt
+### The map of the highway is in data/highway_map.txt
 There is also a sparse map list of waypoints around the highway. Each waypoint in the list contains  [x,y,s,dx,dy] values. x and y are the waypoint's map coordinate position, the s value is the distance along the road to get to that waypoint in meters, the dx and dy values define the unit normal vector pointing outward of the highway loop.
 
 ## Basic Build Instructions
@@ -29,7 +29,6 @@ There is also a sparse map list of waypoints around the highway. Each waypoint i
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./path_planning`.
-
 
 
 
