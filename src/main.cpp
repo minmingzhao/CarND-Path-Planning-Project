@@ -384,12 +384,12 @@ int main() {
                 auto ids = SensorFussionLaneIds(check_lane,sensor_fusion);
                 double nearest = NearestApproach(ids,sensor_fusion,0.02*prev_size,car_s);
 
-                double buffer = 20;//[m] because we decel at -.224 mph/0.02s=-5m/s2, 5*4 = 20m buffer is needed.
+                double buffer = 10;//[m] because we decel at -.224 mph/0.02s=-5m/s2, 5*4 = 20m buffer is needed.
 
                 //1) collision cost
                 if (nearest < buffer) {cost_collision = pow(10,2);}
                 //2) buffer cost
-                cost_buffer= Normalize(buffer/nearest) * 1;
+                cost_buffer= Normalize(2*buffer/nearest) * 1;
                 cost = cost_lane + cost_speed + cost_collision + cost_buffer;
 
                 cout<<"lane="<<lane<<". check_lane="<<check_lane<<". cost="<<cost<<
