@@ -1,4 +1,40 @@
 # CarND-Path-Planning-Project
+This is first project at Term 3 of CarND. 
+
+### Goals
+In this project, the goal is to safely nagivate around a virtual highway with other random traffic that is driving at +- 10mph of 50mph speed limit. We are provided the ego car's localization and sensor fusion data. `[ id, x, y, vx, vy, s, d]
+`, which represents vehicle id, x and y coordinates, x and y direction vehicle speed m/s, Frenet s and d in meters. The project is to desigh a path so that the ego vehicle could go through this simulator at highway traffic as fast as possible without collision, jerk/acceleration discomfort, off lane, keeping on lane etc. 
+
+### Baisc idea of the path planning in this project
+1. Localization of ego car. 
+2. Check distance between ego car and the car in front of it in this lane from sensor fusion. 
+3. If it is close, cost function is called to make decision whether to make a lane change or stay in lane and slow vehicle. The cost function here I defined as below, 
+cost = cost_lane + cost_speed + cost_collision + cost_buffer
+* Cost_lane: is a constant, i.e. resistance to change lane, how consevative a driver to change a lane. 
+* Cost_speed: how similar ego vehicle speed is compared to the average sensor fusioned vehicle at the target lane. This part could be improved such as identifying the front and behind vehicle at target lane, and calculate individual speed cost rather than here an average speed cost. 
+* Cost_collision: within buffer distance, sky rocket the cost. 
+* Cost_buffer: to maintain a desirable distance from the vehicle at front. This cost is calculated based on a hyperbolic function. The reason of using it rather than a linear function is that the further delta distance is, the additional benefit (lowering cost, i.e. 2nd derivative of cost) does not matter too much any more, similiarly, the additional cost increment if delta distance reduction should be higher and higher as the delta distance reduces. This is exactly the property of a hyperbolic function. Hence `cost_buffer = 20/delta_distance` where 20m is used for 4 sec decel time at worst condition because the decel is 0.224mph/0.02sec=5m/s^2. 
+* all the cost function pieces will go through normalization function to be unitless. 
+4. Cost function makes decision whether if the ego vehicle should keep in lane, slow down vehicle, change to left lane or change to right lane. 
+
+
+
+
+
+#### The map of the highway is in data/highway_map.txt
+There is also a sparse map list of waypoints around the highway. Each waypoint in the list contains  [x,y,s,dx,dy] values. x and y are the waypoint's map coordinate position, the s value is the distance along the road to get to that waypoint in meters, the dx and dy values define the unit normal vector pointing outward of the highway loop.
+
+## Basic Build Instructions
+1. Clone this repo.
+2. Make a build directory: `mkdir build && cd build`
+3. Compile: `cmake .. && make`
+4. Run it: `./path_planning`.
+
+
+
+
+## Below is the README from Udacity github. 
+# CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
    
 ### Simulator.
