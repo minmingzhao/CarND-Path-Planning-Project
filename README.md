@@ -21,6 +21,7 @@ Sample output working window
 [overall.png]:./imgs/overall.png
 ![alt text][overall.png]
 
+
 ### The map of the highway is in data/highway_map.txt
 There is also a sparse map list of waypoints around the highway. Each waypoint in the list contains  [x,y,s,dx,dy] values. x and y are the waypoint's map coordinate position, the s value is the distance along the road to get to that waypoint in meters, the dx and dy values define the unit normal vector pointing outward of the highway loop.
 
