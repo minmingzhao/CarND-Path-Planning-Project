@@ -18,7 +18,9 @@ cost = cost_lane + cost_speed + cost_collision + cost_buffer
 4. Cost function makes decision whether if the ego vehicle should keep in lane, slow down vehicle, change to left lane or change to right lane. 
 
 Sample output working window
+
 [overall.png]:./imgs/overall.png
+
 ![alt text][overall.png]
 
 
